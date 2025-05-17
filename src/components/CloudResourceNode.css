@@ -1,0 +1,57 @@
+/* Custom styling for cloud resource nodes */
+.resource-node {
+  transition: transform 0.2s;
+}
+
+.resource-node:hover {
+  transform: translateY(-3px);
+}
+
+.risk-indicator {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  border-radius: 50%;
+}
+
+.resource-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  border-radius: 9999px;
+  padding: 0.25rem 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* Custom styling for edges */
+.resource-edge {
+  stroke-width: 2;
+  stroke: #888;
+}
+
+.resource-edge.critical {
+  stroke: #e11d48;
+  stroke-width: 3;
+}
+
+.resource-edge.warning {
+  stroke: #f59e0b;
+  stroke-width: 2.5;
+}
+
+/* Animation for risk indicators */
+@keyframes pulse-warning {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.pulse {
+  animation: pulse-warning 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
