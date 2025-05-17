@@ -67,7 +67,7 @@ const RiskAssessmentPage = () => {
       <DashboardHeader onRefresh={handleRefresh} isLoading={isLoading} />
       <main className="flex-1 container mx-auto px-4 py-6">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 h-[calc(100vh-10rem)]">
-          <div className="lg:col-span-2 bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden p-4">
+          <div className="lg:col-span-2 bg-white rounded-lg shadow-sm border border-gray-200 overflow-y-scroll p-4">
             <h2 className="text-xl font-bold mb-4">Risk Assessment</h2>
             <RiskAssessmentComponent 
               vulnerabilities={allVulnerabilities} 

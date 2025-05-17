@@ -10,6 +10,8 @@ import Dashboard from "./pages/Dashboard";
 import RiskAssessmentPage from "./pages/RiskAssessment";
 import AccessControlPage from "./pages/AccessControl";
 import NotFound from "./pages/NotFound";
+import Terraform from "./pages/Terraform";
+import Report from "./pages/Report";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +30,8 @@ const App = () => (
                 <Route path="/resource-graph" element={<Index />} />
                 <Route path="/risks" element={<RiskAssessmentPage />} />
                 <Route path="/access" element={<AccessControlPage />} />
+                <Route path="/report/:version" element={<Report />} />
+                <Route path="/terraform/:version" element={<Terraform />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </div>

@@ -84,14 +84,14 @@ export function AppSidebar() {
                 </SidebarMenuButton>
               </SidebarMenuItem>
               
-              <SidebarMenuItem>
+              {/* <SidebarMenuItem>
                 <SidebarMenuButton asChild isActive={isActive("/access")} tooltip="Access Paths">
                   <Link to="/access">
                     <Link2 className="h-5 w-5" />
                     {open && <span>Access Paths</span>}
                   </Link>
                 </SidebarMenuButton>
-              </SidebarMenuItem>
+              </SidebarMenuItem> */}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
