@@ -72,6 +72,8 @@
 // }
 
 import React, { useState, useEffect } from 'react';
+import { useDataContext } from '@/context/DataContext';
+
 import { MermaidRenderer } from '@/components/MermaidRenderer';
 import { getMockMermaidDiagram } from '@/lib/mockMermaidData';
 import { Button } from '@/components/ui/button';
@@ -94,21 +96,27 @@ interface CloudResourceGraphProps {
 
 export function CloudResourceGraph({ isLoading: externalLoading }: CloudResourceGraphProps) {
   const navigate = useNavigate();
+  
   const [mermaidDiagram, setMermaidDiagram] = useState<string>('');
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [currentVersion, setCurrentVersion] = useState<number>(1);
   const [totalVersions, setTotalVersions] = useState<number>(3); // Mock total versions
+  const { responses } = useDataContext();
   
   useEffect(() => {
     const fetchMermaidDiagram = async () => {
       try {
-        setIsLoading(true);
-        console.log("Fetching mermaid diagram data...");
-        // Get mock data directly
-        const diagram = await getMockMermaidDiagram();
-        console.log("Received diagram data:", diagram.substring(0, 100) + "...");
-        setMermaidDiagram(diagram);
+        
+        const responseIndex = 0;
+
+      //   if (respon) {
+      //   setError('Invalid version selected');
+      //   setIsLoading(false);
+      //   return;
+      // }
+        const diagram = responses[responseIndex].changed_graph;
+        setMermaidDiagram(diagram)
       } catch (err) {
         console.error('Error fetching diagram:', err);
         setError('Failed to load infrastructure diagram');

@@ -8,6 +8,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
+import { useDataContext } from '@/context/DataContext';
 import { ShieldAlert, AlertTriangle, AlertCircle, Info } from 'lucide-react';
 
 interface RiskAssessmentProps {
@@ -17,6 +18,9 @@ interface RiskAssessmentProps {
 
 export function RiskAssessment({ vulnerabilities, onVulnerabilitySelect }: RiskAssessmentProps) {
   // Sort vulnerabilities by severity (critical, high, medium, low)
+    const { responses } = useDataContext();
+      const latest = responses[responses.length - 1];
+
   const sortedVulnerabilities = [...vulnerabilities].sort((a, b) => {
     const severityOrder = { critical: 0, high: 1, medium: 2, low: 3 };
     return severityOrder[a.severity as keyof typeof severityOrder] - severityOrder[b.severity as keyof typeof severityOrder];

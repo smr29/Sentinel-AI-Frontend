@@ -6,3 +6,4 @@ import { DataProvider } from './context/DataContext.tsx';
 createRoot(document.getElementById("root")!).render(  <DataProvider>
     <App />
   </DataProvider>);
+    
